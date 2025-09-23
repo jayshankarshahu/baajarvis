@@ -1,9 +1,11 @@
 import { useSearchParams } from "next/navigation";
 import * as dotenv from "dotenv";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 
 export default function CallbackHandler() {
+
+    let [ bodyText , setBodyText ] = useState('Sending you to the right place...');
 
     // const searchParams = useSearchParams();
 
@@ -24,7 +26,19 @@ export default function CallbackHandler() {
 
                 console.log(resp);
 
-            })
+                if( resp.success && resp.data.authtoken ) {
+
+                    setBodyText( "User verified" );
+
+                    localStorage.setItem('AuthToken' , resp.data.authtoken);
+                    window.location.replace('/');
+                    return;
+
+                } else {
+                    setBodyText( resp.error );
+                }
+
+            })  
             .catch(e => {
                 console.error(e);
             })
@@ -32,5 +46,5 @@ export default function CallbackHandler() {
 
 
 
-    return <h1>Hii</h1>;
+    return <h1>{bodyText}</h1>;
 }
