@@ -1,6 +1,5 @@
 import React, { useContext, useEffect } from "react";
 import { UserContext } from '../contexts/UserContext';
-import useAuthGuard from "./_authGuard";
 
 const google_oauth_url = new URL(process.env.NEXT_PUBLIC_GOOGLE_OAUTH_URL);
 google_oauth_url.searchParams.append('client_id', process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID);

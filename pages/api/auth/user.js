@@ -1,5 +1,5 @@
 import { getUserById } from "@/lib/dbOperations";
-import { authVerificationCodes } from "@/lib/authVerificationCodes";
+import authVerificationCodes from "@/lib/authVerificationCodes";
 import { verifyAuthJwt } from "../_jwtUtils";
 
 export default async function (req, res) {

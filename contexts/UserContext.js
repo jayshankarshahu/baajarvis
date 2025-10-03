@@ -1,5 +1,5 @@
 import { createContext, useState, useEffect } from 'react';
-import { authVerificationCodes } from "@/lib/authVerificationCodes";
+import authVerificationCodes from "@/lib/authVerificationCodes";
 
 // Create the context
 export const UserContext = createContext();
@@ -15,6 +15,8 @@ export const UserProvider = ({ children }) => {
      * Makes refresh auth token request and returns the response json object
      */
     const refreshAuthToken = async () => {
+
+        console.log("Trying to refresh authtoken");
 
         try {
 

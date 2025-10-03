@@ -1,6 +1,6 @@
 import { verify } from 'jsonwebtoken';
 import { getUserById } from "@/lib/dbOperations";
-import { authVerificationCodes } from "@/lib/authVerificationCodes";
+import authVerificationCodes from "@/lib/authVerificationCodes";
 import { revokeAuthJwt, verifyAuthJwt , signAuthJwt } from '../_jwtUtils';
 
 export default async function (req, res) {

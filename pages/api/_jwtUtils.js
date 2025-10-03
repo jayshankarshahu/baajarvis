@@ -1,5 +1,5 @@
 import { sign, verify } from 'jsonwebtoken';
-import { authVerificationCodes } from "@/lib/authVerificationCodes";
+import authVerificationCodes from "@/lib/authVerificationCodes";
 
 /**
  * Adds uuid in the jwt and saves the uuid in db for checking later
