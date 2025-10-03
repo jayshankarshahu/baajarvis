@@ -1,4 +1,4 @@
-import { createContext, useState } from 'react';
+import { createContext, useState, useEffect } from 'react';
 import { authVerificationCodes } from "@/lib/authVerificationCodes";
 
 // Create the context
@@ -6,6 +6,7 @@ export const UserContext = createContext();
 
 // Create a provider component
 export const UserProvider = ({ children }) => {
+
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(false);
     const [isLoggedIn, setLoggedIn] = useState(false);
@@ -107,6 +108,10 @@ export const UserProvider = ({ children }) => {
         setUser(null);
         setLoggedIn(false);
     };
+
+    useEffect(() => {
+        login();
+    }, []);
 
     return (
         <UserContext.Provider value={{
