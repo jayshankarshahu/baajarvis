@@ -36,10 +36,16 @@ export default async function (req, res) {
 
         if (insertInfo.success) {
 
-            const payload = { userId: insertInfo.data._id };
+            console.log( "user insert info:" , insertInfo);
+
+            const userId = insertInfo.data.pop()._id;
+
+            console.log("User id being encoded in token is " , userId);
+
+            const payload = { userId };
 
             const refreshToken = signAuthJwt(payload, process.env.JWT_REFRESH_SECRET_KEY, {
-                expiresIn: parseInt(process.env.JWT_AUTH_TOKEN_AGE),
+                expiresIn: parseInt(process.env.JWT_REFRESH_TOKEN_AGE),
             });
 
             res.setHeader('Set-Cookie', `RefreshToken=${refreshToken}; HttpOnly; Path=/; Max-Age=${process.env.JWT_REFRESH_TOKEN_AGE}`);

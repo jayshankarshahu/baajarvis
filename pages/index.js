@@ -31,7 +31,7 @@ const Page = () => {
   useEffect(() => {
 
     if( !loading && !isLoggedIn ) {
-        router.push(`/login?${router.asPath}`);
+        router.push(`/login?returnUrl${router.asPath}`);
     }
 
   }, [isLoggedIn, loading, router]);

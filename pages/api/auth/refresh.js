@@ -16,8 +16,10 @@ export default async function (req, res) {
 
     if (success) {
 
+        console.log("Refresh token decoded data :" , data);
+
         if (!data.userId) {
-            res.status(400).json({ success: false, error: "Invalid Request" });
+            res.status(400).json({ success: false, error: "Invalid Request" , errorCode });
             return;
         }
 
