@@ -38,7 +38,7 @@ export default async function (req, res) {
 
             console.log( "user insert info:" , insertInfo);
 
-            const userId = insertInfo.data.pop()._id;
+            const userId = insertInfo.data._id;
 
             console.log("User id being encoded in token is " , userId);
 
